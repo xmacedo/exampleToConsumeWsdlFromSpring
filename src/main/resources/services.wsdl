@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+             xmlns:web="http://www.yourwsdlservice.com/wsdl"
+             targetNamespace="http://www.yourwsdlservice.com/wsdl"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <!-- Ping Service -->
+    <message name="PingRequest">
+        <part name="message" type="xsd:string"/>
+    </message>
+    <message name="PingResponse">
+        <part name="response" type="xsd:string"/>
+    </message>
+
+    <portType name="PingServicePortType">
+        <operation name="ping">
+            <input message="web:PingRequest"/>
+            <output message="web:PingResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="PingServiceBinding" type="web:PingServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="ping">
+            <soap:operation soapAction="http://localhost/wsdl/ping"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="PingService">
+        <port name="PingServicePort" binding="web:PingServiceBinding">
+            <soap:address location="http://localhost/wsdl/ping"/>
+        </port>
+    </service>
+
+    <!-- FindById Service -->
+    <message name="FindByIdRequest">
+        <part name="id" type="xsd:int"/>
+    </message>
+    <message name="FindByIdResponse">
+        <part name="result" type="xsd:string"/>
+    </message>
+
+    <portType name="FindByIdServicePortType">
+        <operation name="findById">
+            <input message="web:FindByIdRequest"/>
+            <output message="web:FindByIdResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="FindByIdServiceBinding" type="web:FindByIdServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="findById">
+            <soap:operation soapAction="http://localhost/wsdl/findById"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="FindByIdService">
+        <port name="FindByIdServicePort" binding="web:FindByIdServiceBinding">
+            <soap:address location="http://localhost/wsdl/findById"/>
+        </port>
+    </service>
+</definitions>
