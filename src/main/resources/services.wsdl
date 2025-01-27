@@ -21,7 +21,7 @@
     <binding name="PingServiceBinding" type="web:PingServicePortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="ping">
-            <soap:operation soapAction="http://localhost/wsdl/ping"/>
+            <soap:operation soapAction="http://localhost:8080/wsdl/ping"/>
             <input>
                 <soap:body use="literal"/>
             </input>
@@ -33,7 +33,7 @@
 
     <service name="PingService">
         <port name="PingServicePort" binding="web:PingServiceBinding">
-            <soap:address location="http://localhost/wsdl/ping"/>
+            <soap:address location="http://localhost:8080/wsdl/ping"/>
         </port>
     </service>
 
@@ -55,7 +55,7 @@
     <binding name="FindByIdServiceBinding" type="web:FindByIdServicePortType">
         <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <operation name="findById">
-            <soap:operation soapAction="http://localhost/wsdl/findById"/>
+            <soap:operation soapAction="http://localhost:8080/wsdl/findById"/>
             <input>
                 <soap:body use="literal"/>
             </input>
@@ -67,7 +67,7 @@
 
     <service name="FindByIdService">
         <port name="FindByIdServicePort" binding="web:FindByIdServiceBinding">
-            <soap:address location="http://localhost/wsdl/findById"/>
+            <soap:address location="http://localhost:8080/wsdl/findById"/>
         </port>
     </service>
 </definitions>

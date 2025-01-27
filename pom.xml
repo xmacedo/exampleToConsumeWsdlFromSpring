@@ -83,7 +83,7 @@
                             <sourceRoot>${project.build.directory}/generated-sources</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>http://localhost/wsdl</wsdl>
+                                    <wsdl>http://localhost:8080/wsdl</wsdl>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
